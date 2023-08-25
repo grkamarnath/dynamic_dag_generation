@@ -58,8 +58,7 @@ base_dag = BaseDAG()
 
 
 # Client Code
-# output_ports = ["task_id1", "task_id2"]
-my_dag_id = base_dag.generate_dag(
-    dag_id='my_dag_id',
+si_st_so = base_dag.generate_dag(
+    dag_id='si_st_so',
     args=default_args
 )

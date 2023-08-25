@@ -31,22 +31,18 @@ class BaseDAG:
             dag=dag
         )
 
-    def make_output_port(self, dag):
+    def make_output_port(self, dag, **kwargs):
         return PythonOperator(
             task_id='output_port',
             python_callable=self.load,
             dag=dag)
 
-    @staticmethod
-    def make_dependencies(input_, transform, output):
-        return input_ >> transform >> output
+    def make_dependencies(self, dag):
+        self.make_input_port(dag) >> self.make_transformation(dag) >> self.make_output_port(dag)
 
     def generate_dag(self, dag_id, args):
         with DAG(dag_id, default_args=args) as dag:
-            input_port = self.make_input_port(dag)
-            transform = self.make_transformation(dag)
-            output_port = self.make_output_port(dag)
-            self.make_dependencies(input_port, transform, output_port)
+            self.make_dependencies(dag)
             return dag
 
 

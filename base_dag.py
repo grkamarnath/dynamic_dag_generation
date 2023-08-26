@@ -32,7 +32,7 @@ class BaseDAG:
             dag=dag
         )
 
-    def make_certify_data_quality(self, dag):
+    def make_certify_data_quality(self, dag, **kwargs):
         with TaskGroup("initiate_quality_checks", tooltip="initiate quality checks") as initiate_quality_checks:
             reshape = PythonOperator(
                 task_id='reshape',

@@ -1,6 +1,6 @@
 import airflow
 from airflow import DAG
-from airflow.operators.python_operator import PythonOperator
+from airflow.operators.python import PythonOperator
 from airflow.utils.task_group import TaskGroup
 
 
@@ -81,3 +81,6 @@ si_st_so = base_dag.generate_dag(
     dag_id='si_st_so',
     args=default_args
 )
+#
+# if __name__ == "__main__":
+#     si_st_so.test()

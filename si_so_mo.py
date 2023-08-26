@@ -1,7 +1,7 @@
 from base_dag import BaseDAG
 
 import airflow
-from airflow.operators.python_operator import PythonOperator
+from airflow.operators.python import PythonOperator
 
 
 class SiSTMo(BaseDAG):

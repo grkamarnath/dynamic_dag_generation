@@ -1,4 +1,6 @@
 fileignoreconfig:
 - filename: backup_main.py
   checksum: c711bdb5330b0d824b263d18a66a9f7c4e6ddb9737ec0d6bb02c8df5a49f2e3b
+- filename: .env
+  checksum: 4217411a9d3ee08d23ded45b9514b6b3fccdddb34a66151bdebab52b0a75883b
 

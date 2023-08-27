@@ -1,6 +1,6 @@
-from base_dag import BaseDAG
-
 import airflow
+
+from base_dag import BaseDAG
 
 
 class ServingLayer(BaseDAG):

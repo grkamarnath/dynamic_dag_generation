@@ -8,7 +8,13 @@ apache-airflow="2.7.0"
 apache-airflow-providers-google="10.1.0"
 
 [dev-packages]
+pylint = "*"
+mypy = "*"
 
 [requires]
 python_version = "3.9"
 python_full_version = "3.9.6"
+
+[scripts]
+lint = "bash -c 'pylint src && pylint ./tests'"
+typecheck = "bash -c 'mypy --show-error-codes src && mypy --show-error-codes ./tests'"

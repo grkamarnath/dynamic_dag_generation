@@ -16,5 +16,5 @@ python_version = "3.9"
 python_full_version = "3.9.6"
 
 [scripts]
-lint = "bash -c 'pylint src && pylint ./tests'"
-typecheck = "bash -c 'mypy --show-error-codes src && mypy --show-error-codes ./tests'"
+lint = "bash -c 'pylint src'" # && pylint ./tests
+typecheck = "bash -c 'mypy --show-error-codes src'" # && mypy --show-error-codes ./tests

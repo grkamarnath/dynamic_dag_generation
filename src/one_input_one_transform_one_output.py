@@ -4,7 +4,7 @@ from airflow.operators.python import PythonOperator
 from airflow.utils.task_group import TaskGroup
 
 
-class BaseDAG:
+class OneInputOneTransformOneOutput:
 
     @staticmethod
     def extract():
@@ -75,10 +75,10 @@ default_args = {
     'owner': 'me',
     'start_date': airflow.utils.dates.days_ago(2),
 }
-base_dag = BaseDAG()
+pipeline = OneInputOneTransformOneOutput()
 
 # Client Code
-si_st_so = base_dag.generate_dag(
-    dag_id='si_st_so',
+one_input_one_transform_one_output = pipeline.generate_dag(
+    dag_id='one_input_one_transform_one_output',
     args=default_args
 )

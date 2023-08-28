@@ -1,10 +1,10 @@
 import airflow
 from airflow.operators.python import PythonOperator
 
-from base_dag import BaseDAG
+from one_input_one_transform_one_output import OneInputOneTransformOneOutput
 
 
-class SiSTMo(BaseDAG):
+class OneInputOneTransformMultiOutput(OneInputOneTransformOneOutput):
 
     def make_dependencies(self, dag):
         input_port = self.make_input_port(dag)
@@ -24,12 +24,12 @@ default_args = {
     'owner': 'me',
     'start_date': airflow.utils.dates.days_ago(2),
 }
-si_st_mo_dag = SiSTMo()
+pipeline = OneInputOneTransformMultiOutput()
 
 # Client Code
 output_ports = ["output_port_id1", "output_port_id2"]
 
-si_st_mo = si_st_mo_dag.generate_dag(
-    dag_id='si_st_mo',
+one_input_one_transform_multi_output = pipeline.generate_dag(
+    dag_id='one_input_one_transform_multi_output',
     args=default_args
 )

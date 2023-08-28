@@ -1,9 +1,9 @@
 import airflow
 
-from base_dag import BaseDAG
+from one_input_one_transform_one_output import OneInputOneTransformOneOutput
 
 
-class ServingLayer(BaseDAG):
+class ServingLayer(OneInputOneTransformOneOutput):
 
     def make_dependencies(self, dag):
         self.make_output_port(dag)
@@ -13,10 +13,10 @@ default_args = {
     'owner': 'me',
     'start_date': airflow.utils.dates.days_ago(2),
 }
-only_serving = ServingLayer()
+pipeline = ServingLayer()
 
 # Client Code
-only_serving = only_serving.generate_dag(
+only_serving = pipeline.generate_dag(
     dag_id='only_serving',
     args=default_args
 )

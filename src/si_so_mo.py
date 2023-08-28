@@ -6,10 +6,6 @@ from base_dag import BaseDAG
 
 class SiSTMo(BaseDAG):
 
-    @staticmethod
-    def make_certify_data_quality_task_group_id(**kwargs):
-        return f"initiate_quality_checks_{kwargs['task']}"
-
     def make_dependencies(self, dag):
         input_port = self.make_input_port(dag)
         transform = self.make_transformation(dag)

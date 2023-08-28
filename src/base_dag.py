@@ -32,12 +32,8 @@ class BaseDAG:
             dag=dag
         )
 
-    @staticmethod
-    def make_certify_data_quality_task_group_id(**kwargs):  # pylint: disable=unused-argument
-        return "initiate_quality_checks"
-
     def certify_data_quality(self, dag, **kwargs):  # pylint: disable=unused-argument
-        with TaskGroup(group_id=self.make_certify_data_quality_task_group_id(**kwargs),
+        with TaskGroup(group_id=f"initiate_quality_checks_{kwargs['task']}",
                        tooltip="initiate quality checks") as initiate_quality_checks:
             reshape = PythonOperator(
                 task_id='reshape',
@@ -66,8 +62,8 @@ class BaseDAG:
             dag=dag)
 
     def make_dependencies(self, dag):
-        self.make_input_port(dag) >> self.make_transformation(dag) >> self.certify_data_quality(dag) \
-        >> self.make_output_port(dag)
+        self.make_input_port(dag) >> self.make_transformation(dag) >> \
+        self.certify_data_quality(dag, task='output_port') >> self.make_output_port(dag)
 
     def generate_dag(self, dag_id, args):
         with DAG(dag_id, default_args=args) as dag:
@@ -86,6 +82,3 @@ si_st_so = base_dag.generate_dag(
     dag_id='si_st_so',
     args=default_args
 )
-#
-# if __name__ == "__main__":
-#     si_st_so.test()

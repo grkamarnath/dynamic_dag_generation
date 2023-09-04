@@ -1,0 +1,13 @@
+import airflow
+
+from {{ module }} import {{ class }}
+
+dag = {{ class }}(config={{config}})
+default_args = {
+    'owner': 'me',
+    'start_date': airflow.utils.dates.days_ago(2),
+}
+dag_id = dag.generate_dag(
+    dag_id="{{ dag_id }}",
+    args=default_args
+)

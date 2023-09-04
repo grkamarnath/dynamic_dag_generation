@@ -1,10 +1,11 @@
-import airflow
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.utils.task_group import TaskGroup
 
 
 class OneInputOneTransformOneOutput:
+    def __init__(self, config):
+        pass
 
     @staticmethod
     def extract():
@@ -70,15 +71,3 @@ class OneInputOneTransformOneOutput:
             self.make_dependencies(dag)
             return dag
 
-
-default_args = {
-    'owner': 'me',
-    'start_date': airflow.utils.dates.days_ago(2),
-}
-pipeline = OneInputOneTransformOneOutput()
-
-# Client Code
-one_input_one_transform_one_output = pipeline.generate_dag(
-    dag_id='one_input_one_transform_one_output',
-    args=default_args
-)

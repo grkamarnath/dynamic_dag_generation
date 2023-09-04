@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 apache-airflow="2.7.0"
 apache-airflow-providers-google="10.1.0"
+jinja2 = "*"
 
 [dev-packages]
 pylint = "*"

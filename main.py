@@ -18,7 +18,7 @@ def dag(dag_class, config):
 
 
 def write_file(name: str, file_content: str):
-    with open(f"sample_folder/{name}", "w") as f:
+    with open(f"output/{name}", "w") as f:
         f.write(file_content)
 
 
@@ -48,15 +48,4 @@ def upload_dag(condition):
         dag(ServingLayer, config={})
 
 
-upload_dag("one_input_one_transform_multi_output")
-
-# Problem: How to integrate these dags into client request
-#   Approach 1:
-#   1. select the dag based on user request
-#   2. Pass the required variables to the DAG class
-#   3. load selected dag as byte string and construct unique file name and upload into DAG bucket folder
-#   In this approach I need to upload required dag files like one_input_one_transform_one_output.py or/and
-#   one_input_one_transform_multi_output.py files and client file that contains the generate dag
-#
-#   Approach 2: No client file needed instead config will be passed to direct selected dag class
-#   **#
+upload_dag(condition="one_input_one_transform_multi_output")

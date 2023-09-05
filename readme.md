@@ -8,15 +8,15 @@ To demonstrate dynamic DAG generation, we will address the following combination
 - **All combinations of Single/Multiple Input Port, Single/Multiple Transformation, and Single/Multiple Output Port (Total: 8 combinations)**
   1. Single Input Port, Single Transformation, and Single Output Port (SISTSO)
   2. Single Input Port, Single Transformation, and Multiple Output Port (SISTMO)
-  3. Single Input Port, Multiple Transformation, and Single Output Port (SIMTSO)
-  4. Single Input Port, Multiple Transformation, and Multiple Output Port (SIMTMO)
-  5. Multiple Input Port, Single Transformation, and Single Output Port (MISTSO)
-  6. Multiple Input Port, Multiple Transformation, and Single Output Port (MIMTSO)
-  7. Multiple Input Port, Single Transformation, and Multiple Output Port (MISTMO)
-  8. Multiple Input Port, Multiple Transformation, and Multiple Output Port (MIMTMO)
+  3. Single Input Port, Multiple Transformation, and Single Output Port (SIMTSO) - Not Yet Implemented
+  4. Single Input Port, Multiple Transformation, and Multiple Output Port (SIMTMO) - Not Yet Implemented
+  5. Multiple Input Port, Single Transformation, and Single Output Port (MISTSO) - Not Yet Implemented
+  6. Multiple Input Port, Multiple Transformation, and Single Output Port (MIMTSO) - Not Yet Implemented
+  7. Multiple Input Port, Single Transformation, and Multiple Output Port (MISTMO) - Not Yet Implemented
+  8. Multiple Input Port, Multiple Transformation, and Multiple Output Port (MIMTMO) - Not Yet Implemented
 - **Additional Scenarios:**
-  1. DAG containing only one task or with few tasks, where the remaining tasks are optional.
-  2. Multiple inputs in a single input port and multiple outputs in a single output port.
+  1. DAG containing only one task or with few tasks, where the remaining tasks are optional - Not Yet Implemented
+  2. Multiple inputs in a single input port and multiple outputs in a single output port - Not Yet Implemented
 
 
 These combinations cover a wide range of scenarios, allowing us to choose the appropriate DAG configuration for a given use case.
@@ -57,8 +57,11 @@ pipenv shell
 python main.py
 ```
 
-## <span style="color:#2ca02c;">Output Directory</span>
+## <span style="color:#2ca02c;">Important Notes:</span>
 
-Whenever you run the above commands, the generated DAGs will be written to the local directory. In a real-world production environment, you can directly upload these generated DAGs into your Apache Airflow environment.
+- Whenever you run the above commands, the generated DAGs will be written to the local directory. In a real-world production environment, you can directly upload these generated DAGs into your Apache Airflow environment.
 
-Please note that this project currently uses Python operators for all tasks, but it can effectively be used with any other operators supported by Apache Airflow to suit your specific use cases.
+- Please note that this project currently uses Python operators for all tasks, but it can effectively be used with any other operators supported by Apache Airflow to suit your specific use cases.
+
+- Currently, the conditions and rules for DAG generation are hardcoded in the `main.py` i.e. upload_dag(condition="one_input_one_transform_multi_output") file. However, you have the flexibility to modify these conditions and rules to align with your specific project requirements.
+By customizing the conditions and rules in the `main.py` file, you can tailor the dynamic DAG generation process to suit your use cases. This adaptability ensures that the generated DAGs align with the unique needs of your data projects.

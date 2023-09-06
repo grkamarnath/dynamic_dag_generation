@@ -2,7 +2,7 @@
 
 ## <span style="color:#2ca02c;">Project Objective</span>
 
-The main objective of this project is to provide an accelerator, library, or idea to generate Directed Acyclic Graphs (DAGs) programmatically and dynamically. This tool is designed to effectively handle various scenarios encountered in real-world data projects.
+The main objective of this project is to provide an accelerator, library, or idea to generate Directed Acyclic Graphs (DAGs) programmatically and dynamically(runtime). This tool is designed to effectively demonstrate DAG generation for various scenarios encountered in real-world data projects.
 
 To demonstrate dynamic DAG generation, we will address the following combinations of scenarios and challenges at runtime:
 - **All combinations of Single/Multiple Input Port, Single/Multiple Transformation, and Single/Multiple Output Port (Total: 8 combinations)**
@@ -15,11 +15,10 @@ To demonstrate dynamic DAG generation, we will address the following combination
   7. Multiple Input Port, Single Transformation, and Multiple Output Port (MISTMO) - Not Yet Implemented
   8. Multiple Input Port, Multiple Transformation, and Multiple Output Port (MIMTMO) - Not Yet Implemented
 - **Additional Scenarios:**
-  1. DAG containing only one task or with few tasks, where the remaining tasks are optional
-  2. Multiple inputs in a single input port and multiple outputs in a single output port - Not Yet Implemented
+  1. DAG containing only one task or with few tasks, where the remaining tasks are optional.
 
 
-These combinations cover a wide range of scenarios, allowing us to choose the appropriate DAG configuration for a given use case.
+These combinations cover a wide range of scenarios, allowing us to choose the appropriate DAG configuration for a given use case or enhance it for new scenarios.
 
 ## <span style="color:#2ca02c;">Advantages of Dynamic DAG Generation</span>
 
